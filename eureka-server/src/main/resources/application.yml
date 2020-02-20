@@ -17,9 +17,10 @@ eureka:
       #客户端与eureka服务交互的地址
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       defaultZone: http://eureka2:9001/eureka/
-  #server:
+  server:
     #设置关闭自我保护功能，生产上线时一定要开启
-    #enable-self-preservation: false
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 4000 #剔除时间间隔,单位:毫秒
 spring:
   profiles: eureka1
 ---
@@ -37,8 +38,9 @@ eureka:
       #客户端与eureka服务交互的地址
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       defaultZone: http://eureka1:9000/eureka/
-    #server:
+  server:
     #设置关闭自我保护功能，生产上线时一定要开启
-    #enable-self-preservation: false
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 4000 #剔除时间间隔,单位:毫秒
 spring:
   profiles: eureka2
