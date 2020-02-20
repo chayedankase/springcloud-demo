@@ -1,0 +1,11 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: order-client
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://eureka1:9000/eureka,http://eureka2:9001/eureka

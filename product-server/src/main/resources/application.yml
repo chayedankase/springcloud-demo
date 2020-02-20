@@ -1,0 +1,15 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: product-server
+eureka:
+  client:
+    service-url:
+      #设置连接的eureka服务地址
+      defaultZone: http://eureka1:9000/eureka,http://eureka2:9001/eureka
+  instance:
+    #设置链结后的id显示信息为 ip:服务名称:端口号
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    #设置显示 实例id的ip信息
+    prefer-ip-address: true

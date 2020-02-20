@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: eureka-server
+---
+server:
+  port: 9000
+eureka:
+  instance:
+  # 此处没有配置host文件，因而不使用hostname,直接使用本地ip127.0.0.1
+    hostname: eureka1
+  client:
+    # 服务端自己不注册
+    #register-with-eureka: false
+    # 服务端自己不获取注册信息
+    #fetch-registry: false
+    service-url:
+      #客户端与eureka服务交互的地址
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://eureka2:9001/eureka/
+  #server:
+    #设置关闭自我保护功能，生产上线时一定要开启
+    #enable-self-preservation: false
+spring:
+  profiles: eureka1
+---
+server:
+  port: 9001
+eureka:
+  instance:
+    hostname: eureka2
+  client:
+    # 服务端自己不注册
+    #register-with-eureka: false
+    # 服务端自己不获取注册信息
+    #fetch-registry: false
+    service-url:
+      #客户端与eureka服务交互的地址
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://eureka1:9000/eureka/
+    #server:
+    #设置关闭自我保护功能，生产上线时一定要开启
+    #enable-self-preservation: false
+spring:
+  profiles: eureka2
