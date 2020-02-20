@@ -10,7 +10,9 @@
     <modules>
         <module>eureka-server</module>
         <module>product-server</module>
+        <module>consul-product-server</module>
         <module>order-client</module>
+        <module>consul-order-client</module>
     </modules>
     <packaging>pom</packaging>
 

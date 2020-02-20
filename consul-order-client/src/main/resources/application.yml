@@ -1,0 +1,28 @@
+server:
+  port: 8062
+spring:
+  application:
+    name: consul-order-server
+  cloud:
+    consul:
+      #consul服务的地址
+      host: 127.0.0.1
+      #consul服务的端口
+      port: 8500
+      discovery:
+        # 是否注册，默认是true
+        register: true
+        # 实例id
+        instance-id: ${spring.application.name}-1
+        #服务实例名称
+        service-name: ${spring.application.name}
+        #服务实例端口
+        port: ${server.port}
+        #健康检查路径
+        health-check-path: /actuator/health
+        #健康检查时间间隔
+        health-check-interval: 15s
+        #开启ip地址注册
+        prefer-ip-address: true
+        #实例的请求ip
+        ip-address: ${spring.cloud.client.ip-address}
