@@ -18,4 +18,11 @@ eureka:
 product-server:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-
+feign:
+  client:
+    config:
+      product-server:
+        logger-level: FULL
+logging:
+  level:
+    com.pansky.order.service.ProductService: debug
