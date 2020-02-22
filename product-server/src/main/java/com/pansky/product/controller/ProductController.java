@@ -25,6 +25,11 @@ public class ProductController {
     @GetMapping("/{id}")
     public Product getPrduct(@PathVariable Integer id){
         Product product = null;
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         if(id == 1){
             product = new Product();
             product.setName("调用ip"+ip+",端口-"+port);

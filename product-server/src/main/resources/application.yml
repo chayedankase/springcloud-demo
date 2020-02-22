@@ -6,6 +6,8 @@ spring:
   profiles: product1
 server:
   port: 8001
+  tomcat:
+    max-threads: 5
 eureka:
   client:
     service-url:

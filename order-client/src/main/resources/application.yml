@@ -23,6 +23,10 @@ feign:
     config:
       product-server:
         logger-level: FULL
+        connectTimeout: 50000
+        readTimeout: 50000
+  httpclient:
+    connection-timeout: 3000
 logging:
   level:
     com.pansky.order.service.ProductService: debug

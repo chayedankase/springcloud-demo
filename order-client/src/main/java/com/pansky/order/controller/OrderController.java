@@ -24,4 +24,9 @@ public class OrderController {
     public Object getOrder(@PathVariable Integer id) {
         return productService.getProductByid(id);
     }
+
+    @GetMapping("/a/{xx}")
+    public Object getFastOrder(@PathVariable String xx){
+        return xx;
+    }
 }
