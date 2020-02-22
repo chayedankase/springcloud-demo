@@ -25,8 +25,8 @@ public class OrderController {
         return productService.getProductByid(id);
     }
 
-    @GetMapping("/a/{xx}")
-    public Object getFastOrder(@PathVariable String xx){
-        return xx;
+    @GetMapping("/xx")
+    public Object getFastOrder(){
+        return "调用成功";
     }
 }
