@@ -13,6 +13,7 @@
         <module>consul-product-server</module>
         <module>order-client</module>
         <module>consul-order-client</module>
+        <module>turbine-hystrix</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -21,6 +22,10 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.6.RELEASE</version>
     </parent>
+
+    <properties>
+        <tomcat.version>9.0.31</tomcat.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -36,7 +41,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR5</version>
+                <version>Greenwich.SR2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

@@ -1,6 +1,7 @@
 package com.pansky.order.service;
 
 import com.pansky.order.entity.Product;
+import com.pansky.order.service.impl.ProductServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author Xue-Pan
  * @date 2020/2/21
  */
-@FeignClient(name = "product-server")
+@FeignClient(name = "product-server",fallback = ProductServiceImpl.class)
 public interface ProductService {
 
     /**
