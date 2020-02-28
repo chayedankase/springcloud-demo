@@ -14,6 +14,7 @@
         <module>order-client</module>
         <module>consul-order-client</module>
         <module>turbine-hystrix</module>
+        <module>zuul-server</module>
     </modules>
     <packaging>pom</packaging>
 
