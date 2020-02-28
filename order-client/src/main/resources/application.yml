@@ -1,6 +1,11 @@
 server:
   port: 8002
 spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      eager: true
   application:
     name: order-client
 eureka:
@@ -21,25 +26,28 @@ product-server:
 #    ReadTimeout: 5000
 #    ConnectTimeout: 5000
 feign:
+  sentinel:
+    #开启基于sentinel的服务熔断
+    enabled: true
   client:
     config:
       product-server:
         logger-level: FULL
         connectTimeout: 50000
         readTimeout: 50000
-  hystrix:
-    enabled: true
-hystrix:
-  command:
-    default:
-      circuitBreaker:
-        requestVolumeThreshold: 5
-        sleepWindowInMilliseconds: 10000
-        errorThresholdPercentage: 50
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
+#  hystrix:
+#    enabled: true
+#hystrix:
+#  command:
+#    default:
+#      circuitBreaker:
+#        requestVolumeThreshold: 5
+#        sleepWindowInMilliseconds: 10000
+#        errorThresholdPercentage: 50
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 5000
 logging:
   level:
     com.pansky.order.service.ProductService: debug
@@ -48,3 +56,4 @@ management:
     web:
       exposure:
         include: '*'
+
