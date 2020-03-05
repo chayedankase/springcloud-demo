@@ -1,0 +1,22 @@
+server:
+  port: 80
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      routes:
+        - id: product-server
+          uri: lb://product-server
+          predicates:
+            - Path=/product-server/**
+          filters:
+            - RewritePath=/product-server/(?<segment>.*),/$\{segment}
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:9000/eureka,http://eureka2:9001/eureka
